@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claim Fee Campaign — Seporsi Mie Ayam Sebelum Mati | Amerta Playground</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            indigoFilm: {
+              950: '#0b1633',
+              900: '#10224d',
+              800: '#183370',
+              700: '#214594',
+            },
+            noodle: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            chili: {
+              500: '#dc2626',
+              600: '#b91c1c',
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigoFilm-800 selection:text-white min-h-screen flex flex-col">
+
+  <!-- Toast Notification (Pengganti alert) -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-sm font-medium text-white shadow-xl border border-slate-700 transition-all duration-300">
+    <div class="flex items-center gap-2.5">
+      <span id="toastIcon" class="text-amber-400">●</span>
+      <span id="toastMessage">Pesan notifikasi</span>
+    </div>
+  </div>
+
+  <!-- Top Wide Thematic Cover Banner (Gaya Tally) -->
+  <header class="relative w-full overflow-hidden bg-gradient-to-br from-indigoFilm-950 via-indigoFilm-900 to-indigoFilm-800 border-b border-indigoFilm-700/40">
+    <!-- Tekstur halus & aksen visual mangkuk mie ayam -->
+    <div class="pointer-events-none absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+    <div class="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-amber-500/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -left-20 bottom-0 h-60 w-60 rounded-full bg-red-600/20 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-3xl px-5 py-10 sm:px-8 sm:py-14">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div class="space-y-3">
+          <!-- Brand Badge -->
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-amber-300 backdrop-blur-sm border border-white/15">
+            <span class="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+            AMERTA PLAYGROUND • CREATOR PAYOUT PORTAL
+          </div>
+
+          <!-- Film Campaign Title -->
+          <h1 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+            Seporsi <span class="text-amber-400">Mie Ayam</span> Sebelum Mati
+          </h1>
+          <p class="text-sm sm:text-base text-indigo-100/90 max-w-xl leading-relaxed">
+            Formulir resmi pengajuan pencairan fee kreator &amp; clipper. Lengkapi data rekening dan rincian akun yang kamu pegang secara akurat.
+          </p>
+        </div>
+
+        <!-- Ilustrasi SVG Mangkuk Mie Ayam & Sumpit Merah -->
+        <div class="shrink-0 self-start sm:self-center">
+          <div class="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-2xl bg-white/10 p-3 backdrop-blur-md border border-white/15 shadow-lg">
+            <svg viewBox="0 0 120 120" class="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Uap hangat -->
+              <path d="M42 32C42 26 47 24 47 18" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              <path d="M58 29C58 23 63 21 63 15" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              <!-- Sumpit merah khas poster -->
+              <line x1="62" y1="54" x2="106" y2="24" stroke="#EF4444" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="66" y1="60" x2="110" y2="36" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round"/>
+              <!-- Mie kuning & topping ayam -->
+              <path d="M26 62C34 50 48 48 60 48C72 48 86 50 94 62" fill="#FBBF24"/>
+              <circle cx="48" cy="55" r="6" fill="#B45309"/>
+              <circle cx="64" cy="53" r="6.5" fill="#92400E"/>
+              <circle cx="76" cy="57" r="5" fill="#D97706"/>
+              <!-- Sawi hijau & daun bawang -->
+              <ellipse cx="38" cy="57" rx="8" ry="4" transform="rotate(-18 38 57)" fill="#22C55E"/>
+              <circle cx="57" cy="58" r="2.2" fill="#4ADE80"/>
+              <circle cx="69" cy="59" r="2.2" fill="#4ADE80"/>
+              <!-- Mangkuk putih keramik -->
+              <path d="M20 62H100C98 85 82 98 60 98C38 98 22 85 20 62Z" fill="#F8FAFC"/>
+              <path d="M44 98H76L73 104H47L44 98Z" fill="#CBD5E1"/>
+              <!-- Motif garis biru klasik mangkuk -->
+              <path d="M23 68H97" stroke="#1E40AF" stroke-width="2.5"/>
+              <circle cx="60" cy="81" r="6" stroke="#DC2626" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 mx-auto w-full max-w-3xl px-4 sm:px-8 -mt-5 pb-16 relative z-10">
+
+    <!-- Status Mode Banner (Demo vs Live Google Sheets) -->
+    <div id="connectionStatusBar" class="mb-5 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white px-4 py-3 shadow-sm border border-slate-200/80 text-xs">
+      <div class="flex items-center gap-2">
+        <span id="statusDot" class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
+        <span id="statusLabel" class="font-medium text-slate-700">Mode Demo Lokal (Data belum disambungkan ke Google Sheets)</span>
+      </div>
+      <button type="button" onclick="openSetupModal()" class="font-semibold text-indigoFilm-800 hover:text-indigoFilm-950 underline underline-offset-2">
+        Konfigurasi Sheet
+      </button>
+    </div>
+
+    <!-- FORM VIEW -->
+    <div id="formContainer" class="space-y-6">
+
+      <!-- Campaign Briefing Callout Box (Gaya Tally Callout) -->
+      <section class="rounded-2xl bg-white p-5 sm:p-6 shadow-sm border border-slate-200/90">
+        <div class="flex items-start gap-3.5">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 font-bold text-base">
+            !
+          </div>
+          <div class="space-y-2 text-sm text-slate-600 leading-relaxed">
+            <h2 class="font-semibold text-slate-900 text-base">Panduan &amp; Ketentuan Claim Fee</h2>
+            <ul class="list-disc pl-4 space-y-1.5">
+              <li>Pastikan <strong class="text-slate-800">Bank/E-Wallet, Nomor Rekening, dan Nama Pemilik Rekening</strong> sudah benar. Kesalahan input rekening di luar tanggung jawab tim.</li>
+              <li>Hindari mengirim <strong class="text-slate-800">klaim ganda</strong> untuk akun dan periode yang sama.</li>
+              <li>Memegang <strong class="text-slate-800">lebih dari 1 akun?</strong> Klik tombol <span class="inline-block rounded bg-slate-100 px-1.5 py-0.5 font-medium text-slate-800">+ Tambah Akun Lain</span> agar setiap username dan jumlah postingannya tercatat rapi.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Claim Form -->
+      <form id="claimForm" class="space-y-6" novalidate>
+
+        <!-- Section 1: Data Penerima & Rekening -->
+        <section class="rounded-2xl bg-white p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-5">
+          <div class="border-b border-slate-100 pb-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-indigoFilm-700">Bagian 1 dari 2</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-0.5">Identitas &amp; Rekening Pencairan</h3>
+          </div>
+
+          <!-- Nama Lengkap -->
+          <div>
+            <label for="namaLengkap" class="block text-sm font-semibold text-slate-800 mb-1.5">
+              Nama Lengkap <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="namaLengkap"
+              name="namaLengkap"
+              required
+              placeholder="Masukkan nama lengkap sesuai KTP / identitas"
+              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+            />
+          </div>
+
+          <!-- Grid Bank & Nomor Rekening -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Bank / E-Wallet -->
+            <div>
+              <label for="bankTujuan" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                Bank / E-Wallet Tujuan <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="bankTujuan"
+                name="bankTujuan"
+                required
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+              >
+                <option value="" disabled selected>Pilih Bank atau E-Wallet...</option>
+                <option value="BCA">BCA</option>
+                <option value="BRI">BRI</option>
+                <option value="BNI">BNI</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="SeaBank">SeaBank</option>
+                <option value="Bank Jago">Bank Jago</option>
+                <option value="DANA">DANA</option>
+                <option value="GoPay">GoPay</option>
+                <option value="OVO">OVO</option>
+                <option value="ShopeePay">ShopeePay</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <!-- Nomor Rekening / E-Wallet -->
+            <div>
+              <label for="nomorRekening" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                Nomor Rekening / No. E-Wallet <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="nomorRekening"
+                name="nomorRekening"
+                inputmode="numeric"
+                required
+                placeholder="Contoh: 1234567890"
+                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+              />
+            </div>
+          </div>
+
+          <!-- Nama Pemilik Rekening -->
+          <div>
+            <label for="namaPemilikRekening" class="block text-sm font-semibold text-slate-800 mb-1.5">
+              Nama Pemilik Rekening (Atas Nama) <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="namaPemilikRekening"
+              name="namaPemilikRekening"
+              required
+              placeholder="Masukkan nama yang muncul saat transfer bank / e-wallet"
+              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+            />
+          </div>
+        </section>
+
+        <!-- Section 2: Multi-Account & Total Postingan -->
+        <section class="rounded-2xl bg-white p-5 sm:p-7 shadow-sm border border-slate-200/90 space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-indigoFilm-700">Bagian 2 dari 2</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-0.5">Daftar Akun &amp; Total Postingan</h3>
+            </div>
+            <span id="accountCountBadge" class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigoFilm-800 border border-indigo-100">
+              1 Akun Terdaftar
+            </span>
+          </div>
+
+          <!-- Dynamic Account Rows Container -->
+          <div id="accountsList" class="space-y-3.5">
+            <!-- Baris akun pertama akan dirender oleh JS -->
+          </div>
+
+          <!-- Tombol Tambah Akun -->
+          <div>
+            <button
+              type="button"
+              id="addAccountBtn"
+              class="inline-flex items-center gap-2 rounded-xl border border-dashed border-indigoFilm-700/50 bg-indigo-50/50 px-4 py-2.5 text-sm font-semibold text-indigoFilm-800 transition hover:bg-indigo-100/70 hover:border-indigoFilm-800 active:scale-[0.99]"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              Tambah Akun Lain
+            </button>
+          </div>
+
+          <!-- Auto-Sum Total Keseluruhan Postingan Box -->
+          <div class="rounded-xl bg-gradient-to-r from-indigoFilm-950 to-indigoFilm-800 p-4 sm:p-5 text-white flex items-center justify-between gap-4 shadow-sm">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-indigo-200 font-semibold">Total Keseluruhan Postingan</p>
+              <p class="text-xs text-indigo-200/80 mt-0.5">Dihitung otomatis dari seluruh akun di atas</p>
+            </div>
+            <div class="text-right">
+              <span id="totalPostsDisplay" class="font-display text-3xl font-extrabold text-amber-400">0</span>
+              <span class="text-xs font-medium text-indigo-100 block">postingan</span>
+            </div>
+          </div>
+
+          <!-- Link Bukti Rekap (Opsional) -->
+          <div>
+            <label for="linkBukti" class="block text-sm font-semibold text-slate-800 mb-1.5">
+              Link Bukti Rekap / Google Drive Postingan <span class="text-slate-400 font-normal">(Opsional)</span>
+            </label>
+            <input
+              type="url"
+              id="linkBukti"
+              name="linkBukti"
+              placeholder="https://drive.google.com/... atau link spreadsheet rekap"
+              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+            />
+          </div>
+        </section>
+
+        <!-- Live Summary Preview Card -->
+        <section class="rounded-2xl bg-slate-100/80 p-5 border border-slate-200/90 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Ringkasan Sebelum Kirim</h4>
+            <span class="text-xs text-slate-500">Live Preview</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="rounded-xl bg-white p-3 border border-slate-200/70">
+              <span class="text-xs text-slate-400 block">Tujuan Transfer</span>
+              <span id="previewBank" class="font-semibold text-slate-800">-</span>
+              <span id="previewOwner" class="text-xs text-slate-500 block mt-0.5">a.n. -</span>
+            </div>
+            <div class="rounded-xl bg-white p-3 border border-slate-200/70">
+              <span class="text-xs text-slate-400 block">Akun &amp; Total Konten</span>
+              <span id="previewAccounts" class="font-semibold text-slate-800 line-clamp-1">-</span>
+              <span id="previewTotalPosts" class="text-xs font-medium text-indigoFilm-700 block mt-0.5">Total: 0 postingan</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Submit Button -->
+        <div class="pt-1">
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full flex items-center justify-center gap-2 rounded-2xl bg-indigoFilm-900 px-6 py-4 text-base font-bold text-white shadow-lg shadow-indigoFilm-900/20 transition hover:bg-indigoFilm-800 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/30 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <span id="submitBtnText">Kirim Pengajuan Claim Fee</span>
+            <svg id="submitBtnArrow" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- CONFIRMATION RECEIPT VIEW (Muncul setelah submit) -->
+    <div id="receiptContainer" class="hidden">
+      <div class="rounded-2xl bg-white p-6 sm:p-8 shadow-md border border-slate-200 space-y-6">
+        <div class="text-center space-y-2 pb-4 border-b border-slate-100">
+          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200">
+            Pengajuan Berhasil Tercatat
+          </span>
+          <h2 class="font-display text-2xl font-extrabold text-slate-900">Terima Kasih, <span id="receiptName">Kreator</span>!</h2>
+          <p class="text-sm text-slate-500 max-w-md mx-auto">
+            Data claim fee untuk campaign <strong>Seporsi Mie Ayam Sebelum Mati</strong> telah masuk ke sistem rekap Amerta Playground.
+          </p>
+        </div>
+
+        <!-- Ticket ID Box -->
+        <div class="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-indigo-50/80 px-4 py-3.5 border border-indigo-100">
+          <div>
+            <span class="text-xs font-medium text-indigoFilm-700 block">Nomor Tiket Klaim</span>
+            <span id="receiptTicketId" class="font-mono text-base font-bold text-indigoFilm-950">SMASM-000000</span>
+          </div>
+          <button
+            type="button"
+            onclick="copyTicketId()"
+            class="rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-indigoFilm-800 border border-indigo-200 hover:bg-indigo-100/50 transition"
+          >
+            Salin Tiket
+          </button>
+        </div>
+
+        <!-- Detail Ringkasan -->
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between py-2 border-b border-slate-100">
+            <span class="text-slate-500">Waktu Pengajuan</span>
+            <span id="receiptTimestamp" class="font-medium text-slate-800">-</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-slate-100">
+            <span class="text-slate-500">Bank / E-Wallet</span>
+            <span id="receiptBank" class="font-semibold text-slate-800">-</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-slate-100">
+            <span class="text-slate-500">Nomor Rekening</span>
+            <span id="receiptAccountNum" class="font-mono font-semibold text-slate-800">-</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-slate-100">
+            <span class="text-slate-500">Atas Nama</span>
+            <span id="receiptOwner" class="font-medium text-slate-800">-</span>
+          </div>
+          <div class="py-2 border-b border-slate-100">
+            <span class="text-slate-500 block mb-1.5">Rincian Akun &amp; Postingan</span>
+            <ul id="receiptAccountsList" class="space-y-1 rounded-xl bg-slate-50 p-3 text-xs font-medium text-slate-700 border border-slate-200/70">
+            </ul>
+          </div>
+          <div class="flex justify-between items-center py-2">
+            <span class="font-semibold text-slate-800">Total Keseluruhan Postingan</span>
+            <span id="receiptTotalPosts" class="rounded-lg bg-amber-100 px-3 py-1 font-display text-base font-extrabold text-amber-900">0 Postingan</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <button
+            type="button"
+            onclick="downloadReceipt()"
+            class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition"
+          >
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            Download Bukti Submit (.txt)
+          </button>
+          <button
+            type="button"
+            onclick="resetFormForNewClaim()"
+            class="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+          >
+            Kirim Claim Lain
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Subtle Footer with Admin Setup Trigger -->
+  <footer class="border-t border-slate-200/80 bg-white py-6 px-4 text-center text-xs text-slate-500">
+    <div class="mx-auto max-w-3xl flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 <strong class="text-slate-700">Amerta Playground</strong> — Campaign <em>Seporsi Mie Ayam Sebelum Mati</em>.</p>
+      <button
+        type="button"
+        onclick="openSetupModal()"
+        class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition"
+      >
+        <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        Setup Google Sheets
+      </button>
+    </div>
+  </footer>
+
+  <!-- ADMIN SETUP MODAL (Google Apps Script Integration) -->
+  <div id="setupModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6">
+    <div class="mx-auto my-8 max-w-2xl rounded-2xl bg-white p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigoFilm-700">Admin Panel</span>
+          <h3 class="text-xl font-bold text-slate-900">Hubungkan ke Google Sheets</h3>
+          <p class="text-xs text-slate-500 mt-1">Simpan setiap pengajuan claim fee langsung ke Google Sheets secara gratis.</p>
+        </div>
+        <button type="button" onclick="closeSetupModal()" class="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- URL Input -->
+      <div class="space-y-2">
+        <label for="webhookUrlInput" class="block text-sm font-semibold text-slate-800">
+          URL Web App Google Apps Script
+        </label>
+        <input
+          type="url"
+          id="webhookUrlInput"
+          placeholder="https://script.google.com/macros/s/AKfycb.../exec"
+          class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+        />
+        <p class="text-xs text-slate-500">
+          Kosongkan jika ingin memakai <strong>Mode Demo</strong> untuk uji coba tampilan form.
+        </p>
+      </div>
+
+      <!-- Langkah Pemasangan Singkat -->
+      <div class="rounded-xl bg-slate-50 p-4 border border-slate-200/80 space-y-2.5 text-xs text-slate-600">
+        <p class="font-semibold text-slate-800">Cara Pasang di Google Sheets (2 Menit):</p>
+        <ol class="list-decimal pl-4 space-y-1">
+          <li>Buka Google Sheets baru &rarr; klik menu <strong>Extensions &gt; Apps Script</strong>.</li>
+          <li>Hapus kode lama, lalu tempel kode di bawah ini dan klik <strong>Save</strong>.</li>
+          <li>Klik <strong>Deploy &gt; New deployment</strong> &rarr; pilih tipe <strong>Web app</strong>.</li>
+          <li>Atur <em>Execute as:</em> <strong>Me</strong> dan <em>Who has access:</em> <strong>Anyone</strong>, lalu klik <strong>Deploy</strong>.</li>
+          <li>Salin <strong>Web app URL</strong> yang muncul dan tempel ke kolom di atas.</li>
+        </ol>
+      </div>
+
+      <!-- Ready-to-copy Google Apps Script Code -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-700">Kode Google Apps Script (Siap Tempel)</span>
+          <button
+            type="button"
+            onclick="copyAppsScriptCode()"
+            class="inline-flex items-center gap-1.5 rounded-lg bg-indigoFilm-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigoFilm-800 transition"
+          >
+            Salin Kode Script
+          </button>
+        </div>
+        <pre id="appsScriptCodeBlock" class="max-h-48 overflow-auto rounded-xl bg-slate-900 p-3.5 text-xs text-emerald-300 font-mono leading-relaxed">function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      "Ticket ID", "Timestamp", "Nama Lengkap", "Bank / E-Wallet",
+      "Nomor Rekening", "Atas Nama", "Jumlah Akun", "Daftar Akun",
+      "Rincian Postingan per Akun", "Total Postingan", "Link Bukti", "Status"
+    ]);
+  }
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    data.ticketId,
+    data.timestamp,
+    data.namaLengkap,
+    data.bankTujuan,
+    "'" + data.nomorRekening,
+    data.namaPemilikRekening,
+    data.jumlahAkun,
+    data.daftarAkun,
+    data.rincianPostingan,
+    data.totalPostingan,
+    data.linkBukti || "-",
+    "Pending"
+  ]);
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "success", ticketId: data.ticketId }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+      </div>
+
+      <!-- Modal Footer Buttons -->
+      <div class="flex flex-wrap items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
+        <button
+          type="button"
+          onclick="clearWebhookUrl()"
+          class="rounded-xl px-4 py-2.5 text-xs font-semibold text-red-600 hover:bg-red-50 transition"
+        >
+          Reset ke Mode Demo
+        </button>
+        <button
+          type="button"
+          onclick="saveWebhookUrl()"
+          class="rounded-xl bg-indigoFilm-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigoFilm-800 transition"
+        >
+          Simpan Konfigurasi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    const STORAGE_KEY = 'amerta_smasm_gas_url';
+    let lastSubmittedPayload = null;
+
+    // Utilitas notifikasi toast (tanpa alert)
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMsg.textContent = message;
+      toastIcon.className = isError ? 'text-red-400' : 'text-amber-400';
+      toast.classList.remove('hidden');
+
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3600);
+    }
+
+    // Update indikator koneksi Google Sheets
+    function updateConnectionUI() {
+      const savedUrl = localStorage.getItem(STORAGE_KEY) || '';
+      const dot = document.getElementById('statusDot');
+      const label = document.getElementById('statusLabel');
+      const input = document.getElementById('webhookUrlInput');
+
+      if (input) input.value = savedUrl;
+
+      if (savedUrl.trim()) {
+        dot.className = 'h-2.5 w-2.5 rounded-full bg-emerald-500';
+        label.textContent = 'Terhubung ke Google Sheets (Live Submission Aktif)';
+      } else {
+        dot.className = 'h-2.5 w-2.5 rounded-full bg-amber-500';
+        label.textContent = 'Mode Demo Lokal (Klik Konfigurasi Sheet untuk sambungkan ke Google Sheets)';
+      }
+    }
+
+    // Buat baris input akun dinamis
+    function createAccountRow(username = '', postCount = '') {
+      const container = document.getElementById('accountsList');
+      const rowIndex = container.children.length + 1;
+
+      const row = document.createElement('div');
+      row.className = 'account-row group relative rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4 transition hover:border-slate-300';
+
+      row.innerHTML = `
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="row-title text-xs font-bold uppercase tracking-wider text-slate-500">Akun #${rowIndex}</span>
+          <button
+            type="button"
+            class="remove-account-btn inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium text-red-600 hover:bg-red-50 transition ${rowIndex === 1 ? 'hidden' : ''}"
+            title="Hapus akun ini"
+          >
+            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Hapus
+          </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+          <div class="sm:col-span-8">
+            <label class="block text-xs font-medium text-slate-600 mb-1">Username Akun (TikTok / IG) <span class="text-red-500">*</span></label>
+            <input
+              type="text"
+              class="account-username w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+              placeholder="Contoh: @clipper_mieayam"
+              value="${username}"
+              required
+            />
+          </div>
+          <div class="sm:col-span-4">
+            <label class="block text-xs font-medium text-slate-600 mb-1">Jumlah Postingan <span class="text-red-500">*</span></label>
+            <input
+              type="number"
+              min="1"
+              step="1"
+              inputmode="numeric"
+              class="account-posts w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
+              placeholder="0"
+              value="${postCount}"
+              required
+            />
+          </div>
+        </div>
+      `;
+
+      // Event listener hapus baris
+      const removeBtn = row.querySelector('.remove-account-btn');
+      removeBtn.addEventListener('click', () => {
+        row.remove();
+        refreshAccountRows();
+      });
+
+      // Event listener hitung ulang otomatis saat ketik
+      row.querySelector('.account-username').addEventListener('input', updateLiveSummary);
+      row.querySelector('.account-posts').addEventListener('input', updateLiveSummary);
+
+      container.appendChild(row);
+      refreshAccountRows();
+    }
+
+    // Perbarui nomor urut akun & tombol hapus
+    function refreshAccountRows() {
+      const rows = document.querySelectorAll('#accountsList .account-row');
+      rows.forEach((row, idx) => {
+        row.querySelector('.row-title').textContent = `Akun #${idx + 1}`;
+        const removeBtn = row.querySelector('.remove-account-btn');
+        if (rows.length === 1) {
+          removeBtn.classList.add('hidden');
+        } else {
+          removeBtn.classList.remove('hidden');
+        }
+      });
+
+      const badge = document.getElementById('accountCountBadge');
+      badge.textContent = `${rows.length} Akun Terdaftar`;
+      updateLiveSummary();
+    }
+
+    // Hitung total postingan & update Live Summary Preview
+    function updateLiveSummary() {
+      const rows = document.querySelectorAll('#accountsList .account-row');
+      let totalPosts = 0;
+      const accountNames = [];
+
+      rows.forEach((row) => {
+        const uname = row.querySelector('.account-username').value.trim();
+        const count = parseInt(row.querySelector('.account-posts').value, 10);
+        if (!isNaN(count) && count > 0) {
+          totalPosts += count;
+        }
+        if (uname) {
+          accountNames.push(uname.startsWith('@') ? uname : `@${uname}`);
+        }
+      });
+
+      document.getElementById('totalPostsDisplay').textContent = totalPosts;
+
+      const bank = document.getElementById('bankTujuan').value;
+      const rek = document.getElementById('nomorRekening').value.trim();
+      const owner = document.getElementById('namaPemilikRekening').value.trim();
+
+      document.getElementById('previewBank').textContent = (bank || rek) ? `${bank || 'Bank'} • ${rek || '-'}` : '-';
+      document.getElementById('previewOwner').textContent = `a.n. ${owner || '-'}`;
+      document.getElementById('previewAccounts').textContent = accountNames.length ? accountNames.join(', ') : '-';
+      document.getElementById('previewTotalPosts').textContent = `Total: ${totalPosts} postingan (${rows.length} akun)`;
+    }
+
+    // Validasi & Submit Form
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const namaLengkap = document.getElementById('namaLengkap').value.trim();
+      const bankTujuan = document.getElementById('bankTujuan').value.trim();
+      const nomorRekening = document.getElementById('nomorRekening').value.trim();
+      const namaPemilikRekening = document.getElementById('namaPemilikRekening').value.trim();
+      const linkBukti = document.getElementById('linkBukti').value.trim();
+
+      if (!namaLengkap || !bankTujuan || !nomorRekening || !namaPemilikRekening) {
+        showToast('Lengkapi seluruh data identitas dan rekening terlebih dahulu.', true);
+        return;
+      }
+
+      const rows = document.querySelectorAll('#accountsList .account-row');
+      const accountsData = [];
+      let totalPostingan = 0;
+
+      for (let i = 0; i < rows.length; i++) {
+        let uname = rows[i].querySelector('.account-username').value.trim();
+        const postsVal = rows[i].querySelector('.account-posts').value.trim();
+        const posts = parseInt(postsVal, 10);
+
+        if (!uname || isNaN(posts) || posts < 1) {
+          showToast(`Periksa kembali username dan jumlah postingan pada Akun #${i + 1}.`, true);
+          return;
+        }
+
+        if (!uname.startsWith('@')) uname = `@${uname}`;
+        accountsData.push({ username: uname, posts });
+        totalPostingan += posts;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      const submitBtnText = document.getElementById('submitBtnText');
+      submitBtn.disabled = true;
+      submitBtnText.textContent = 'Mengirim Pengajuan...';
+
+      const now = new Date();
+      const timestamp = now.toLocaleString('id-ID', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+      const randomDigits = Math.floor(100000 + Math.random() * 900000);
+      const ticketId = `SMASM-${randomDigits}`;
+
+      const payload = {
+        ticketId,
+        timestamp,
+        namaLengkap,
+        bankTujuan,
+        nomorRekening,
+        namaPemilikRekening,
+        jumlahAkun: accountsData.length,
+        daftarAkun: accountsData.map(a => a.username).join(', '),
+        rincianPostingan: accountsData.map(a => `${a.username} (${a.posts} post)`).join(' | '),
+        totalPostingan,
+        linkBukti,
+        accountsArray: accountsData,
+      };
+
+      const gasUrl = (localStorage.getItem(STORAGE_KEY) || '').trim();
+
+      try {
+        if (gasUrl) {
+          // Kirim ke Google Apps Script Web App
+          await fetch(gasUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+          });
+        } else {
+          // Simulasi jeda pengiriman pada Mode Demo
+          await new Promise(resolve => setTimeout(resolve, 600));
+        }
+
+        lastSubmittedPayload = payload;
+        renderReceipt(payload);
+        showToast(gasUrl ? 'Data terkirim ke Google Sheets!' : 'Simulasi submit berhasil (Mode Demo).');
+      } catch (err) {
+        showToast('Gagal mengirim data. Periksa koneksi internet atau URL Google Sheets.', true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'Kirim Pengajuan Claim Fee';
+      }
+    }
+
+    // Tampilkan halaman konfirmasi / bukti submit
+    function renderReceipt(data) {
+      document.getElementById('receiptName').textContent = data.namaLengkap;
+      document.getElementById('receiptTicketId').textContent = data.ticketId;
+      document.getElementById('receiptTimestamp').textContent = data.timestamp;
+      document.getElementById('receiptBank').textContent = data.bankTujuan;
+      document.getElementById('receiptAccountNum').textContent = data.nomorRekening;
+      document.getElementById('receiptOwner').textContent = data.namaPemilikRekening;
+      document.getElementById('receiptTotalPosts').textContent = `${data.totalPostingan} Postingan`;
+
+      const listEl = document.getElementById('receiptAccountsList');
+      listEl.innerHTML = '';
+      data.accountsArray.forEach((acc, index) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between py-1';
+        li.innerHTML = `
+          <span>${index + 1}. <strong>${acc.username}</strong></span>
+          <span class="rounded bg-white px-2 py-0.5 text-slate-700 border border-slate-200">${acc.posts} postingan</span>
+        `;
+        listEl.appendChild(li);
+      });
+
+      document.getElementById('formContainer').classList.add('hidden');
+      document.getElementById('receiptContainer').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Salin Ticket ID menggunakan execCommand fallback
+    function copyTicketId() {
+      const text = document.getElementById('receiptTicketId').textContent;
+      copyTextFallback(text, 'Nomor tiket berhasil disalin!');
+    }
+
+    function copyAppsScriptCode() {
+      const code = document.getElementById('appsScriptCodeBlock').textContent;
+      copyTextFallback(code, 'Kode Google Apps Script berhasil disalin!');
+    }
+
+    function copyTextFallback(text, successMessage) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage);
+      } catch (e) {
+        showToast('Gagal menyalin teks.', true);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // Download bukti submit sebagai file teks
+    function downloadReceipt() {
+      if (!lastSubmittedPayload) return;
+      const d = lastSubmittedPayload;
+      const content = [
+        '==================================================',
+        'BUKTI PENGAJUAN CLAIM FEE - AMERTA PLAYGROUND',
+        'Campaign: Seporsi Mie Ayam Sebelum Mati',
+        '==================================================',
+        `Nomor Tiket     : ${d.ticketId}`,
+        `Waktu Submit    : ${d.timestamp}`,
+        `Nama Lengkap    : ${d.namaLengkap}`,
+        `Bank / E-Wallet : ${d.bankTujuan}`,
+        `Nomor Rekening  : ${d.nomorRekening}`,
+        `Atas Nama       : ${d.namaPemilikRekening}`,
+        `Jumlah Akun     : ${d.jumlahAkun}`,
+        `Rincian Akun    : ${d.rincianPostingan}`,
+        `Total Postingan : ${d.totalPostingan}`,
+        `Link Bukti      : ${d.linkBukti || '-'}`,
+        '==================================================',
+        'Simpan bukti ini sebagai referensi verifikasi.'
+      ].join('\n');
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Bukti-Claim-${d.ticketId}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Reset form untuk mengirim klaim baru
+    function resetFormForNewClaim() {
+      document.getElementById('claimForm').reset();
+      document.getElementById('accountsList').innerHTML = '';
+      createAccountRow();
+      document.getElementById('receiptContainer').classList.add('hidden');
+      document.getElementById('formContainer').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Modal Setup Google Sheets
+    function openSetupModal() {
+      document.getElementById('setupModal').classList.remove('hidden');
+    }
+
+    function closeSetupModal() {
+      document.getElementById('setupModal').classList.add('hidden');
+    }
+
+    function saveWebhookUrl() {
+      const val = document.getElementById('webhookUrlInput').value.trim();
+      if (val && !val.startsWith('https://script.google.com/')) {
+        showToast('Pastikan URL berasal dari https://script.google.com/...', true);
+        return;
+      }
+      localStorage.setItem(STORAGE_KEY, val);
+      updateConnectionUI();
+      closeSetupModal();
+      showToast(val ? 'URL Google Sheets berhasil disimpan!' : 'Kembali ke Mode Demo.');
+    }
+
+    function clearWebhookUrl() {
+      localStorage.removeItem(STORAGE_KEY);
+      document.getElementById('webhookUrlInput').value = '';
+      updateConnectionUI();
+      closeSetupModal();
+      showToast('Konfigurasi direset ke Mode Demo.');
+    }
+
+    // Inisialisasi saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      createAccountRow();
+      updateConnectionUI();
+
+      document.getElementById('addAccountBtn').addEventListener('click', () => {
+        createAccountRow();
+      });
+
+      ['bankTujuan', 'nomorRekening', 'namaPemilikRekening'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateLiveSummary);
+        document.getElementById(id).addEventListener('change', updateLiveSummary);
+      });
+
+      document.getElementById('claimForm').addEventListener('submit', handleFormSubmit);
+    });
+  </script>
+</body>
+</html>
