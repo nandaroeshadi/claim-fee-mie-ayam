@@ -42,7 +42,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigoFilm-800 selection:text-white min-h-screen flex flex-col">
 
-  <!-- Toast Notification (Pengganti alert) -->
+  <!-- Toast Notification -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-sm font-medium text-white shadow-xl border border-slate-700 transition-all duration-300">
     <div class="flex items-center gap-2.5">
       <span id="toastIcon" class="text-amber-400">●</span>
@@ -50,9 +50,8 @@
     </div>
   </div>
 
-  <!-- Top Wide Thematic Cover Banner (Gaya Tally) -->
+  <!-- Top Wide Thematic Cover Banner -->
   <header class="relative w-full overflow-hidden bg-gradient-to-br from-indigoFilm-950 via-indigoFilm-900 to-indigoFilm-800 border-b border-indigoFilm-700/40">
-    <!-- Tekstur halus & aksen visual mangkuk mie ayam -->
     <div class="pointer-events-none absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
     <div class="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-amber-500/20 blur-3xl"></div>
     <div class="pointer-events-none absolute -left-20 bottom-0 h-60 w-60 rounded-full bg-red-600/20 blur-3xl"></div>
@@ -79,25 +78,19 @@
         <div class="shrink-0 self-start sm:self-center">
           <div class="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-2xl bg-white/10 p-3 backdrop-blur-md border border-white/15 shadow-lg">
             <svg viewBox="0 0 120 120" class="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <!-- Uap hangat -->
               <path d="M42 32C42 26 47 24 47 18" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
               <path d="M58 29C58 23 63 21 63 15" stroke="#FDE68A" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-              <!-- Sumpit merah khas poster -->
               <line x1="62" y1="54" x2="106" y2="24" stroke="#EF4444" stroke-width="4.5" stroke-linecap="round"/>
               <line x1="66" y1="60" x2="110" y2="36" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round"/>
-              <!-- Mie kuning & topping ayam -->
               <path d="M26 62C34 50 48 48 60 48C72 48 86 50 94 62" fill="#FBBF24"/>
               <circle cx="48" cy="55" r="6" fill="#B45309"/>
               <circle cx="64" cy="53" r="6.5" fill="#92400E"/>
               <circle cx="76" cy="57" r="5" fill="#D97706"/>
-              <!-- Sawi hijau & daun bawang -->
               <ellipse cx="38" cy="57" rx="8" ry="4" transform="rotate(-18 38 57)" fill="#22C55E"/>
               <circle cx="57" cy="58" r="2.2" fill="#4ADE80"/>
               <circle cx="69" cy="59" r="2.2" fill="#4ADE80"/>
-              <!-- Mangkuk putih keramik -->
               <path d="M20 62H100C98 85 82 98 60 98C38 98 22 85 20 62Z" fill="#F8FAFC"/>
               <path d="M44 98H76L73 104H47L44 98Z" fill="#CBD5E1"/>
-              <!-- Motif garis biru klasik mangkuk -->
               <path d="M23 68H97" stroke="#1E40AF" stroke-width="2.5"/>
               <circle cx="60" cy="81" r="6" stroke="#DC2626" stroke-width="2"/>
             </svg>
@@ -110,21 +103,10 @@
   <!-- Main Content Container -->
   <main class="flex-1 mx-auto w-full max-w-3xl px-4 sm:px-8 -mt-5 pb-16 relative z-10">
 
-    <!-- Status Mode Banner (Demo vs Live Google Sheets) -->
-    <div id="connectionStatusBar" class="mb-5 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white px-4 py-3 shadow-sm border border-slate-200/80 text-xs">
-      <div class="flex items-center gap-2">
-        <span id="statusDot" class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
-        <span id="statusLabel" class="font-medium text-slate-700">Mode Demo Lokal (Data belum disambungkan ke Google Sheets)</span>
-      </div>
-      <button type="button" onclick="openSetupModal()" class="font-semibold text-indigoFilm-800 hover:text-indigoFilm-950 underline underline-offset-2">
-        Konfigurasi Sheet
-      </button>
-    </div>
-
     <!-- FORM VIEW -->
     <div id="formContainer" class="space-y-6">
 
-      <!-- Campaign Briefing Callout Box (Gaya Tally Callout) -->
+      <!-- Campaign Briefing Callout Box -->
       <section class="rounded-2xl bg-white p-5 sm:p-6 shadow-sm border border-slate-200/90">
         <div class="flex items-start gap-3.5">
           <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 font-bold text-base">
@@ -240,9 +222,7 @@
           </div>
 
           <!-- Dynamic Account Rows Container -->
-          <div id="accountsList" class="space-y-3.5">
-            <!-- Baris akun pertama akan dirender oleh JS -->
-          </div>
+          <div id="accountsList" class="space-y-3.5"></div>
 
           <!-- Tombol Tambah Akun -->
           <div>
@@ -322,7 +302,7 @@
       </form>
     </div>
 
-    <!-- CONFIRMATION RECEIPT VIEW (Muncul setelah submit) -->
+    <!-- CONFIRMATION RECEIPT VIEW -->
     <div id="receiptContainer" class="hidden">
       <div class="rounded-2xl bg-white p-6 sm:p-8 shadow-md border border-slate-200 space-y-6">
         <div class="text-center space-y-2 pb-4 border-b border-slate-100">
@@ -409,136 +389,18 @@
 
   </main>
 
-  <!-- Subtle Footer with Admin Setup Trigger -->
+  <!-- Footer -->
   <footer class="border-t border-slate-200/80 bg-white py-6 px-4 text-center text-xs text-slate-500">
-    <div class="mx-auto max-w-3xl flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="mx-auto max-w-3xl">
       <p>&copy; 2026 <strong class="text-slate-700">Amerta Playground</strong> — Campaign <em>Seporsi Mie Ayam Sebelum Mati</em>.</p>
-      <button
-        type="button"
-        onclick="openSetupModal()"
-        class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition"
-      >
-        <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        Setup Google Sheets
-      </button>
     </div>
   </footer>
 
-  <!-- ADMIN SETUP MODAL (Google Apps Script Integration) -->
-  <div id="setupModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6">
-    <div class="mx-auto my-8 max-w-2xl rounded-2xl bg-white p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5">
-      <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-indigoFilm-700">Admin Panel</span>
-          <h3 class="text-xl font-bold text-slate-900">Hubungkan ke Google Sheets</h3>
-          <p class="text-xs text-slate-500 mt-1">Simpan setiap pengajuan claim fee langsung ke Google Sheets secara gratis.</p>
-        </div>
-        <button type="button" onclick="closeSetupModal()" class="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- URL Input -->
-      <div class="space-y-2">
-        <label for="webhookUrlInput" class="block text-sm font-semibold text-slate-800">
-          URL Web App Google Apps Script
-        </label>
-        <input
-          type="url"
-          id="webhookUrlInput"
-          placeholder="https://script.google.com/macros/s/AKfycb.../exec"
-          class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-indigoFilm-700 focus:outline-none focus:ring-4 focus:ring-indigoFilm-700/10"
-        />
-        <p class="text-xs text-slate-500">
-          Kosongkan jika ingin memakai <strong>Mode Demo</strong> untuk uji coba tampilan form.
-        </p>
-      </div>
-
-      <!-- Langkah Pemasangan Singkat -->
-      <div class="rounded-xl bg-slate-50 p-4 border border-slate-200/80 space-y-2.5 text-xs text-slate-600">
-        <p class="font-semibold text-slate-800">Cara Pasang di Google Sheets (2 Menit):</p>
-        <ol class="list-decimal pl-4 space-y-1">
-          <li>Buka Google Sheets baru &rarr; klik menu <strong>Extensions &gt; Apps Script</strong>.</li>
-          <li>Hapus kode lama, lalu tempel kode di bawah ini dan klik <strong>Save</strong>.</li>
-          <li>Klik <strong>Deploy &gt; New deployment</strong> &rarr; pilih tipe <strong>Web app</strong>.</li>
-          <li>Atur <em>Execute as:</em> <strong>Me</strong> dan <em>Who has access:</em> <strong>Anyone</strong>, lalu klik <strong>Deploy</strong>.</li>
-          <li>Salin <strong>Web app URL</strong> yang muncul dan tempel ke kolom di atas.</li>
-        </ol>
-      </div>
-
-      <!-- Ready-to-copy Google Apps Script Code -->
-      <div class="space-y-2">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold text-slate-700">Kode Google Apps Script (Siap Tempel)</span>
-          <button
-            type="button"
-            onclick="copyAppsScriptCode()"
-            class="inline-flex items-center gap-1.5 rounded-lg bg-indigoFilm-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigoFilm-800 transition"
-          >
-            Salin Kode Script
-          </button>
-        </div>
-        <pre id="appsScriptCodeBlock" class="max-h-48 overflow-auto rounded-xl bg-slate-900 p-3.5 text-xs text-emerald-300 font-mono leading-relaxed">function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow([
-      "Ticket ID", "Timestamp", "Nama Lengkap", "Bank / E-Wallet",
-      "Nomor Rekening", "Atas Nama", "Jumlah Akun", "Daftar Akun",
-      "Rincian Postingan per Akun", "Total Postingan", "Link Bukti", "Status"
-    ]);
-  }
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    data.ticketId,
-    data.timestamp,
-    data.namaLengkap,
-    data.bankTujuan,
-    "'" + data.nomorRekening,
-    data.namaPemilikRekening,
-    data.jumlahAkun,
-    data.daftarAkun,
-    data.rincianPostingan,
-    data.totalPostingan,
-    data.linkBukti || "-",
-    "Pending"
-  ]);
-  return ContentService
-    .createTextOutput(JSON.stringify({ status: "success", ticketId: data.ticketId }))
-    .setMimeType(ContentService.MimeType.JSON);
-}</pre>
-      </div>
-
-      <!-- Modal Footer Buttons -->
-      <div class="flex flex-wrap items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
-        <button
-          type="button"
-          onclick="clearWebhookUrl()"
-          class="rounded-xl px-4 py-2.5 text-xs font-semibold text-red-600 hover:bg-red-50 transition"
-        >
-          Reset ke Mode Demo
-        </button>
-        <button
-          type="button"
-          onclick="saveWebhookUrl()"
-          class="rounded-xl bg-indigoFilm-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigoFilm-800 transition"
-        >
-          Simpan Konfigurasi
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Application Logic -->
   <script>
-    const STORAGE_KEY = 'amerta_smasm_gas_url';
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9IDX0FLGwL6CFpbsONbNX0fJKsIXhaZ1JpqdFygzXGoCmUf0EeegFhuBPTXFjkCZi2w/exec';
     let lastSubmittedPayload = null;
 
-    // Utilitas notifikasi toast (tanpa alert)
     function showToast(message, isError = false) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toastMessage');
@@ -554,25 +416,6 @@
       }, 3600);
     }
 
-    // Update indikator koneksi Google Sheets
-    function updateConnectionUI() {
-      const savedUrl = localStorage.getItem(STORAGE_KEY) || '';
-      const dot = document.getElementById('statusDot');
-      const label = document.getElementById('statusLabel');
-      const input = document.getElementById('webhookUrlInput');
-
-      if (input) input.value = savedUrl;
-
-      if (savedUrl.trim()) {
-        dot.className = 'h-2.5 w-2.5 rounded-full bg-emerald-500';
-        label.textContent = 'Terhubung ke Google Sheets (Live Submission Aktif)';
-      } else {
-        dot.className = 'h-2.5 w-2.5 rounded-full bg-amber-500';
-        label.textContent = 'Mode Demo Lokal (Klik Konfigurasi Sheet untuk sambungkan ke Google Sheets)';
-      }
-    }
-
-    // Buat baris input akun dinamis
     function createAccountRow(username = '', postCount = '') {
       const container = document.getElementById('accountsList');
       const rowIndex = container.children.length + 1;
@@ -621,14 +464,12 @@
         </div>
       `;
 
-      // Event listener hapus baris
       const removeBtn = row.querySelector('.remove-account-btn');
       removeBtn.addEventListener('click', () => {
         row.remove();
         refreshAccountRows();
       });
 
-      // Event listener hitung ulang otomatis saat ketik
       row.querySelector('.account-username').addEventListener('input', updateLiveSummary);
       row.querySelector('.account-posts').addEventListener('input', updateLiveSummary);
 
@@ -636,7 +477,6 @@
       refreshAccountRows();
     }
 
-    // Perbarui nomor urut akun & tombol hapus
     function refreshAccountRows() {
       const rows = document.querySelectorAll('#accountsList .account-row');
       rows.forEach((row, idx) => {
@@ -654,7 +494,6 @@
       updateLiveSummary();
     }
 
-    // Hitung total postingan & update Live Summary Preview
     function updateLiveSummary() {
       const rows = document.querySelectorAll('#accountsList .account-row');
       let totalPosts = 0;
@@ -683,7 +522,6 @@
       document.getElementById('previewTotalPosts').textContent = `Total: ${totalPosts} postingan (${rows.length} akun)`;
     }
 
-    // Validasi & Submit Form
     async function handleFormSubmit(e) {
       e.preventDefault();
 
@@ -745,34 +583,25 @@
         accountsArray: accountsData,
       };
 
-      const gasUrl = (localStorage.getItem(STORAGE_KEY) || '').trim();
-
       try {
-        if (gasUrl) {
-          // Kirim ke Google Apps Script Web App
-          await fetch(gasUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(payload),
-          });
-        } else {
-          // Simulasi jeda pengiriman pada Mode Demo
-          await new Promise(resolve => setTimeout(resolve, 600));
-        }
+        await fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        });
 
         lastSubmittedPayload = payload;
         renderReceipt(payload);
-        showToast(gasUrl ? 'Data terkirim ke Google Sheets!' : 'Simulasi submit berhasil (Mode Demo).');
+        showToast('Pengajuan claim fee berhasil terkirim!');
       } catch (err) {
-        showToast('Gagal mengirim data. Periksa koneksi internet atau URL Google Sheets.', true);
+        showToast('Gagal mengirim data. Periksa koneksi internet kamu dan coba lagi.', true);
       } finally {
         submitBtn.disabled = false;
         submitBtnText.textContent = 'Kirim Pengajuan Claim Fee';
       }
     }
 
-    // Tampilkan halaman konfirmasi / bukti submit
     function renderReceipt(data) {
       document.getElementById('receiptName').textContent = data.namaLengkap;
       document.getElementById('receiptTicketId').textContent = data.ticketId;
@@ -799,18 +628,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Salin Ticket ID menggunakan execCommand fallback
     function copyTicketId() {
       const text = document.getElementById('receiptTicketId').textContent;
-      copyTextFallback(text, 'Nomor tiket berhasil disalin!');
-    }
-
-    function copyAppsScriptCode() {
-      const code = document.getElementById('appsScriptCodeBlock').textContent;
-      copyTextFallback(code, 'Kode Google Apps Script berhasil disalin!');
-    }
-
-    function copyTextFallback(text, successMessage) {
       const textarea = document.createElement('textarea');
       textarea.value = text;
       textarea.style.position = 'fixed';
@@ -819,14 +638,13 @@
       textarea.select();
       try {
         document.execCommand('copy');
-        showToast(successMessage);
+        showToast('Nomor tiket berhasil disalin!');
       } catch (e) {
         showToast('Gagal menyalin teks.', true);
       }
       document.body.removeChild(textarea);
     }
 
-    // Download bukti submit sebagai file teks
     function downloadReceipt() {
       if (!lastSubmittedPayload) return;
       const d = lastSubmittedPayload;
@@ -860,7 +678,6 @@
       URL.revokeObjectURL(url);
     }
 
-    // Reset form untuk mengirim klaim baru
     function resetFormForNewClaim() {
       document.getElementById('claimForm').reset();
       document.getElementById('accountsList').innerHTML = '';
@@ -870,39 +687,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Modal Setup Google Sheets
-    function openSetupModal() {
-      document.getElementById('setupModal').classList.remove('hidden');
-    }
-
-    function closeSetupModal() {
-      document.getElementById('setupModal').classList.add('hidden');
-    }
-
-    function saveWebhookUrl() {
-      const val = document.getElementById('webhookUrlInput').value.trim();
-      if (val && !val.startsWith('https://script.google.com/')) {
-        showToast('Pastikan URL berasal dari https://script.google.com/...', true);
-        return;
-      }
-      localStorage.setItem(STORAGE_KEY, val);
-      updateConnectionUI();
-      closeSetupModal();
-      showToast(val ? 'URL Google Sheets berhasil disimpan!' : 'Kembali ke Mode Demo.');
-    }
-
-    function clearWebhookUrl() {
-      localStorage.removeItem(STORAGE_KEY);
-      document.getElementById('webhookUrlInput').value = '';
-      updateConnectionUI();
-      closeSetupModal();
-      showToast('Konfigurasi direset ke Mode Demo.');
-    }
-
-    // Inisialisasi saat halaman dimuat
     document.addEventListener('DOMContentLoaded', () => {
       createAccountRow();
-      updateConnectionUI();
 
       document.getElementById('addAccountBtn').addEventListener('click', () => {
         createAccountRow();
